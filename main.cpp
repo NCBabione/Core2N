@@ -38,6 +38,7 @@ int main() {
 				std::cin >> inputs.at(ins);
 			}
 			myData.set_inputs(inputs);
+			myData.solve_network();
 			myData.list_Data();
 		}
 

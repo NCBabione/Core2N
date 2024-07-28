@@ -9,13 +9,12 @@ private:
 	std::vector<int> outputs;
 	std::vector<std::vector<int>> hiddenLayers;
 
-	
-
 public:
 	// public functions and data
 	// init function
 	void init_Data(std::vector<int>&, std::vector<std::vector<int>>& , std::vector<int>&);
 	void list_Data();
+	void solve_network();
 
 
 	// induvidual size set functions

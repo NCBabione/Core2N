@@ -2,6 +2,7 @@
 #include <vector>
 #include "data.h"
 
+// define function
 void requestData(std::vector<float>&, std::vector<float>&, std::vector<std::vector<float>>&);
 
 int main() {

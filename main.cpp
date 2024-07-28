@@ -2,14 +2,14 @@
 #include <vector>
 #include "data.h"
 
-void requestData(std::vector<int>&, std::vector<int>&, std::vector<std::vector<int>>&);
+void requestData(std::vector<float>&, std::vector<float>&, std::vector<std::vector<float>>&);
 
 int main() {
 	data myData{};
 	
-	std::vector<int> inputs;
-	std::vector<int> outputs;
-	std::vector<std::vector<int>> hiddenLayers;
+	std::vector<float> inputs;
+	std::vector<float> outputs;
+	std::vector<std::vector<float>> hiddenLayers;
 	requestData(inputs, outputs, hiddenLayers);
 
 	myData.init_Data(inputs, hiddenLayers, outputs);
@@ -47,23 +47,23 @@ int main() {
 	return 0;
 }
 
-void requestData(std::vector<int>& inputs, std::vector<int>& outputs, std::vector<std::vector<int>>& hiddenLayers) {
+void requestData(std::vector<float>& inputs, std::vector<float>& outputs, std::vector<std::vector<float>>& hiddenLayers) {
 	int temp;
 	std::cout << "How many input nodes would you like: ";
 	std::cin >> temp;
 	// fills the vector with 0 temp times
-	inputs.assign(temp, 0);
+	inputs.assign(temp, 0.0f);
 
 	std::cout << "How many output nodes would you like: ";
 	std::cin >> temp;
 	// fills the vector with 0 temp times
-	outputs.assign(temp, 0);
+	outputs.assign(temp, 0.0f);
 
 	// sets up a vector of hidden nodes
 	std::cout << "How many nodes in the hidden layers would you like: ";
 	std::cin >> temp;
-	std::vector<int> tempVect;
-	tempVect.assign(temp, 0);
+	std::vector<float> tempVect;
+	tempVect.assign(temp, 0.0f);
 
 	// creates a vector of vectors of hidden nodes
 	std::cout << "How many hidden layers would you like: ";

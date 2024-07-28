@@ -18,6 +18,7 @@ public:
 	void init_Data(std::vector<float>&, std::vector<std::vector<float>>& , std::vector<float>&);
 	void list_Data();
 	void solve_network();
+	void reset();
 
 
 	// induvidual size set functions

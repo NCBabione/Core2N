@@ -22,6 +22,7 @@ int main() {
 		std::cout << "Commands:" << std::endl;
 		std::cout << "	\"q\" to quit." << std::endl;
 		std::cout << "	\"i\" to set inputs." << std::endl;
+		std::cout << "	\"r\" to reset and reallocate memory." << std::endl;
 		std::cout << std::endl;
 
 		// check for input
@@ -40,6 +41,10 @@ int main() {
 			myData.set_inputs(inputs);
 			myData.solve_network();
 			myData.list_Data();
+		}
+
+		else if (input == 'r') {
+			myData.reset();
 		}
 
 	}

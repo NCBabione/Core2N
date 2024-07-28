@@ -182,3 +182,10 @@ void data::solve_network() {
 		outputs.at(out_index) /= hiddenLayers.at(size_x - 1).size();
 	}
 }
+
+void data::reset() {
+	weights.clear();
+	inputs.clear();
+	outputs.clear();
+	hiddenLayers.clear();
+}

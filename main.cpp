@@ -1,33 +1,35 @@
 #include <iostream>
 #include <vector>
-#include "data.h"
-#include "lib/eigen-3.4.0/Eigen/Dense"
+#include "neuralNetwork.h"
 
 // define size of network
 const int numInputs = 5;
 const int numOutputs = 4;
 const int numHiddenLayers = 3;
-const int nodesPerHiddenLayer = 3;
+const int nodesPerHiddenLayer = 16;
 
 int main() {
+	neuralNetwork myNet;
+
+
 	// setup hiddenLayers
 	float hiddenLayers[numHiddenLayers][nodesPerHiddenLayer];
 	for (int i = 0; i < numHiddenLayers; i++) {
 		for (int j = 0; j < nodesPerHiddenLayer; j++) {
-			hiddenLayers[i][j] = 1.0f;
+			hiddenLayers[i][j] = 0.0f;
 		}
 	}
 
 	//setup inputs
 	float inputs[numInputs];
 	for (int i = 0; i < numInputs; i++) {
-		inputs[i] = 1.0f;
+		inputs[i] = 0.0f;
 	}
 
 	// setup outputs
 	float outputs[numOutputs];
 	for (int i = 0; i < numOutputs; i++) {
-		outputs[i] = 1.0f;
+		outputs[i] = 0.0f;
 	}
 	
 	while (true) {
@@ -35,7 +37,8 @@ int main() {
 		std::cout << "Commands:" << std::endl;
 		std::cout << "	\"q\" to quit." << std::endl;
 		std::cout << "	\"i\" to set inputs." << std::endl;
-		std::cout << "	\"p\" to display the network." << std::endl;
+		//std::cout << "	\"p\" to display the network." << std::endl;
+		std::cout << "	\"s\" to solve the neural network." << std::endl;
 
 		// check for user input
 		char userInput;
@@ -57,27 +60,15 @@ int main() {
 		}
 
 		// if 'p', print the network
+		/*
 		else if (userInput == 'p') {
 
-			// print inputs
-			for (int i = 0; i < numInputs; i++) {
-				std::cout << inputs[i] << " ";
-			}
-			std::cout << std::endl;
+		}*/
 
-			// print hiddenLayers
-			for (int i = 0; i < numHiddenLayers; i++) {
-				for (int j = 0; j < nodesPerHiddenLayer; j++) {
-					std::cout << hiddenLayers[i][j];
-				}
-				std::cout << std::endl;
-			}
-
-			// print outputs
-			for (int i = 0; i < numOutputs; i++) {
-				std::cout << outputs[i];
-			}
-			std::cout << std::endl;
+		// if 's', solve the network
+		else if (userInput == 's') {
+			// solve network
+			myNet.solveNetwork(inputs, hiddenLayers, outputs);
 		}
 
 	}

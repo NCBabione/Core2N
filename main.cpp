@@ -1,11 +1,57 @@
 #include <iostream>
 #include <vector>
 #include "data.h"
+#include "lib/eigen-3.4.0/Eigen/Dense"
 
 // define function
 void requestData(std::vector<float>&, std::vector<float>&, std::vector<std::vector<float>>&);
 
+// new function to easily create a new line
+void end();
+
 int main() {
+	// setup hiddenLayers
+	float hiddenLayers[3][3];
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			hiddenLayers[i][j] = 1.0f;
+		}
+	}
+
+	//setup inputs
+	float inputs[5];
+	for (int i = 0; i < 5; i++) {
+		inputs[i] = 1.0f;
+	}
+
+	// setup outputs
+	float outputs[4];
+	for (int i = 0; i < 4; i++) {
+		outputs[i] = 1.0f;
+	}
+	
+	// print inputs
+	for (int i = 0; i < 5; i++) {
+		std::cout << inputs[i];
+	}
+	end();
+
+	// print hiddenLayers
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			std::cout << hiddenLayers[i][j];
+		}
+		end();
+	}
+
+	// print outputs
+	for (int i = 0; i < 4; i++) {
+		std::cout << outputs[i];
+	}
+	end();
+	
+
+	/*
 	data myData{};
 	
 	std::vector<float> inputs;
@@ -51,6 +97,9 @@ int main() {
 	}
 	// return default 0
 	return 0;
+	*/
+
+	return 0;
 }
 
 void requestData(std::vector<float>& inputs, std::vector<float>& outputs, std::vector<std::vector<float>>& hiddenLayers) {
@@ -75,4 +124,8 @@ void requestData(std::vector<float>& inputs, std::vector<float>& outputs, std::v
 	std::cout << "How many hidden layers would you like: ";
 	std::cin >> temp;
 	hiddenLayers.assign(temp, tempVect);
+}
+
+void end() {
+	std::cout << std::endl;
 }

@@ -105,7 +105,7 @@ void data::list_Data() {
 	// list out hidden layers
 	for (int layers = 0; layers < hiddenLayers.size(); layers++) {
 		for (int nodes_layers = 0; nodes_layers < hiddenLayers.at(layers).size(); nodes_layers++) {
-			std::cout << hiddenLayers.at(layers).at(nodes_layers) << " ";
+			//std::cout << hiddenLayers.at(layers).at(nodes_layers) << " ";
 			//std::cout << 'h';
 		}
 		std::cout << std::endl;
